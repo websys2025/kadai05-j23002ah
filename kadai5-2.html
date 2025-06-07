@@ -13,7 +13,10 @@
     <div id="result"></div>
     <script>
         async function some_api(myForm) {
-            // ここにコードを書く
+            const name = myForm.form_data.value;
+    try {
+        const response = await fetch(`https://api.agify.io/?name=${encodeURIComponent(name)}`);
+        const data = await response.json();// ここにコードを書く
             document.getElementById("result").innerHTML += myForm.form_data.value+"<br />";
             document.apiform.reset();
         }
